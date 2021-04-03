@@ -1,4 +1,4 @@
-import { defaultModel } from '../common/constants';
+import { defaultModel } from './../common/constants';
 
 export default {
 	email: defaultModel.stringUnique,
@@ -8,5 +8,9 @@ export default {
 	isVerify: defaultModel.booleanFalse,
 	typeLogin: { ...defaultModel.string, required: true },
 	role: { ...defaultModel.string, default: 'USER' },
-	cartId: defaultModel.string
+	FK_cart: defaultModel.string,
+  otp:defaultModel.string,
+  FK_address:defaultModel.string,
+  image:defaultModel.string,
+  FK_merchant:defaultModel.string
 };
