@@ -1,7 +1,7 @@
 import { defaultModel } from './../common/constants';
 
 export default {
-	name:defaultModel.string,
+	name:defaultModel.stringR,
   image:defaultModel.string,
-  status:defaultModel.string
+  status:{...defaultModel.string,default:''}
 };

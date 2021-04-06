@@ -1,11 +1,11 @@
 import { defaultModel } from './../common/constants';
 
 export default {
-	FK_createUser:defaultModel.string,
-  FK_cart:defaultModel.string,
-  FK_address:defaultModel.string,
-  status:defaultModel.string,
+	FK_createUser:defaultModel.stringRef,
+  FK_cart:defaultModel.stringRef,
+  FK_address:defaultModel.stringRef,
+  status:{...defaultModel.string,default:''},
   checkIn:defaultModel.array,
-  phone:defaultModel.string
+  phone:defaultModel.stringPhone
   
 };

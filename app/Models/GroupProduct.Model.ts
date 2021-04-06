@@ -1,6 +1,6 @@
 import { defaultModel } from './../common/constants';
 
 export default {
-	name:defaultModel.string,
-  status:defaultModel.string
+	name:defaultModel.stringR,
+  status:{...defaultModel.string,default:''}
 };

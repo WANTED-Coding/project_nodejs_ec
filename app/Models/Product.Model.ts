@@ -1,8 +1,8 @@
 import { defaultModel } from './../common/constants';
 
 export default {
-	status:defaultModel.string,
-  groupProductId:defaultModel.string,
-  FK_merchant:defaultModel.string,
-  FK_currentInfo:defaultModel.string
+	status:{...defaultModel.string,default:''},
+  groupProductId:defaultModel.stringRef,
+  FK_merchant:defaultModel.stringRef,
+  FK_currentInfo:defaultModel.stringRef
 };
