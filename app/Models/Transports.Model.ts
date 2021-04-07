@@ -1,12 +1,12 @@
 import { defaultModel } from './../common/constants';
 
 export default {
-	name:defaultModel.string,
+	name:defaultModel.stringR,
 	description:defaultModel.string,
 	image:defaultModel.string,
-	address:defaultModel.string,
-	typeSupport:defaultModel.string,
-	phone:defaultModel.string,
-	status:defaultModel.string,
-	FK_createUser:defaultModel.string
+	address:defaultModel.stringR,
+	typeSupport:{...defaultModel.string,default:''},
+	phone:defaultModel.stringR,
+	status:{...defaultModel.string,default:''},
+	FK_createUser:defaultModel.stringRef
 };

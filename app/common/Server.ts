@@ -14,7 +14,7 @@ class App{
     this._dbUrl=DB_URL
   }
   public run(): http.Server{
-    return this.app.listen(this._port,()=>console.log(`⚡️[server]: Server is running at https://localhost:${this._port}`))
+    return this.app.listen(this._port,()=>console.log(` ⚡️ [server]: Server is running at https://localhost:${this._port}`))
   }
   public loadMiddleware(middlers: Array<RequestHandler>): void {
     middlers.forEach(middleware => {

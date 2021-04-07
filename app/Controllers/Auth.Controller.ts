@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import {  Response, NextFunction } from 'express';
 import Controller, { Methods } from './Controller';
 import TokenServices from '../Services/Token.Services';
 import { AuthPath } from '../common/RoutePath';
@@ -53,8 +53,8 @@ export default class AuthController extends Controller {
 		try {
 			const { email, password }: any = req.value?.body!;
 			console.log(req.value?.body);
-			const authService: AuthService = new AuthService(email, password);
-			const result = await authService.loginServices();
+			const authService: AuthService = new AuthService();
+			const result = await authService.loginServices(email, password);
 			console.log(result);
 			if (result.success) {
 				super.sendSuccess(
@@ -77,13 +77,8 @@ export default class AuthController extends Controller {
 		//Handle
 		try {
 			const { email, password, phone, fullName }: any = req.value?.body!;
-			const authService: AuthService = new AuthService(
-				email,
-				password,
-				phone,
-				fullName
-			);
-			const result = await authService?.register();
+			const authService: AuthService = new AuthService();
+			const result = await authService?.register(email,password,phone,fullName);
 			if (result.success) {
 				super.sendSuccess(res, result.data!, result.message);
 			} else {
@@ -109,7 +104,7 @@ export default class AuthController extends Controller {
 		//Handle
 		try {
 			const { email, password, newPassword }: any = req.value?.body!;
-			const authService: AuthService = new AuthService(email, password);
+			const authService: AuthService = new AuthService(req.value?.param);
 			const result = await authService?.changePassword(newPassword);
 			if (result.success) {
 				super.sendSuccess(res, result.data!, result.message);

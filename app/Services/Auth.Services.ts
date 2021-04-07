@@ -9,24 +9,20 @@ interface AuthReturnData {
 	data?: IUser;
 }
 export default class AuthService {
-	constructor(
-		public readonly email: string,
-		public readonly password: string,
-		public readonly _id?: string,
-		public readonly phone?: string,
-		public readonly fullName?: string,
-		public readonly typeLogin?: string
-	) {}
-	public loginServices = async (): Promise<AuthReturnData> => {
+	constructor(public readonly _id?: string) {}
+	public loginServices = async (
+		email: string,
+		password: string
+	): Promise<AuthReturnData> => {
 		try {
-			console.log(this.email);
+			console.log(email);
 			const resDbUser: IUser | null = await User.findOne({
-				email: this.email
+				email: email
 			});
 			if (resDbUser) {
-				console.log('password: ' + this.password);
+				console.log('password: ' + password);
 				const isPasswordEqual = await bcrypt.compare(
-					this.password,
+					password,
 					resDbUser.password
 				);
 				console.log('password from db: ' + resDbUser.password);
@@ -47,18 +43,23 @@ export default class AuthService {
 			return { message: 'An error occured', success: false };
 		}
 	};
-	public register = async (): Promise<AuthReturnData> => {
+	public register = async (
+		email: string,
+		password: string,
+		phone: string,
+		fullName: string
+	): Promise<AuthReturnData> => {
 		try {
 			const userFromDb = await User.findOne({
-				where: { email: this.email }
+				where: { email: email }
 			});
 			if (!userFromDb) {
-				const hashedPassword = await bcrypt.hash(this.password, 10);
+				const hashedPassword = await bcrypt.hash(password, 10);
 				const createdUser = new User({
-					email: this.email,
+					email: email,
 					password: hashedPassword,
-					phone: this.phone,
-					fullName: this.fullName,
+					phone: phone,
+					fullName: fullName,
 					typeLogin: ETypeLogin.EMAIL
 				});
 				await createdUser.save();
@@ -77,26 +78,17 @@ export default class AuthService {
 	};
 	public changePassword = async (newPass: string): Promise<AuthReturnData> => {
 		try {
-			const user = await User.findOne({
-				email: this.email,
-				password: this.password
-			});
+			const user = await User.findById(this._id);
 			if (!user) {
 				return { message: 'User  not already exists', success: false };
 			} else {
-				if (await bcrypt.compare(this.password, user.password)) {
-					const hashedPassword = await bcrypt.hash(newPass, 10);
-					user.password = hashedPassword;
-					await user.save();
-					return {
-						message: 'Successfully changed password',
-						data: user,
-						success: true
-					};
-				}
+				const hashedPassword = await bcrypt.hash(newPass, 10);
+				user.password = hashedPassword;
+				await user.save();
 				return {
-					message: 'password incorrect',
-					success: false
+					message: 'Successfully changed password',
+					data: user,
+					success: true
 				};
 			}
 		} catch (e) {
