@@ -2,8 +2,8 @@ module.exports = {
   apps: [
     {
       name: "EC-21",
-      script: "./dist/app/index.ts",
-      args: "./app/index.ts",
+      script: "dist/app/index.ts",
+      args: "app/index.ts",
       instances: 1,
       exec_interpreter: "node",
       exec_mode: "cluster",

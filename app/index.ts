@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 import morgan from "morgan";
-import bodyParser from "body-parser";
+import {urlencoded} from "body-parser";
 import cors from "cors";
 // express
 import express, { Application, RequestHandler } from "express";
@@ -13,8 +13,8 @@ import AuthController from "./Controllers/Auth.Controller";
 
 const controllers: Array<Controller> = [new AuthController()];
 const globalMiddleware: Array<RequestHandler> = [
-	bodyParser(),
-	bodyParser.urlencoded({ extended: false }),
+  express.json(),
+  urlencoded({ extended: false }),
 	cors({ origin: true }),
 	morgan("combined"),
 ];

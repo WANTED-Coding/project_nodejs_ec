@@ -5,6 +5,13 @@
     "rootDir": "./",
     "outDir": "./build",
     "esModuleInterop": true,
-    "strict": true
-  }
+    "strict": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "allowJs": true,
+  },
+  "exclude": [
+      "node_modules",
+      "**/*spec.ts"
+  ]
 }
