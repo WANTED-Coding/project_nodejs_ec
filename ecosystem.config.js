@@ -4,11 +4,11 @@ module.exports = {
       name: "EC-21",
       script: "./dist/app/index.ts",
       args: "./app/index.ts",
-      node_args: ["ts-node-dev", "--poll"],
-      autorestart: true,
       instances: 1,
       exec_interpreter: "node",
       exec_mode: "cluster",
+      interpreter: "node",
+      watch: true,
       env: {
         NODE_ENV: "development",
       },
