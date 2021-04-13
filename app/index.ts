@@ -1,5 +1,5 @@
-import doenv from 'dotenv';
-doenv.config();
+import dotenv from 'dotenv';
+dotenv.config();
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 // express
