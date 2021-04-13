@@ -20,7 +20,7 @@ export default class Token {
 		}
 		const token = header.split(' ')[1];
 		console.log('tokenService token: ' + token);
-		jwt.verify(token, ACCESS_TOKEN_SECRET!, (err, decodedFromToken) => {
+		jwt.verify(token, ACCESS_TOKEN_SECRET!, (err:any, decodedFromToken:any) => {
 			if (err) {
 				res.json({
 					data: {

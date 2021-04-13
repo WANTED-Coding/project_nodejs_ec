@@ -36,7 +36,7 @@ export default class AuthService {
 					return { message: 'Invalid password', success: false };
 				}
 			} else {
-				return { message: 'No such user', success: false };
+				return { message: 'Invalid user', success: false };
 			}
 		} catch (e) {
 			console.log(e);
