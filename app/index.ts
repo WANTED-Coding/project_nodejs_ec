@@ -13,9 +13,10 @@ import AuthController from "./Controllers/Auth.Controller";
 
 const controllers: Array<Controller> = [new AuthController()];
 const globalMiddleware: Array<RequestHandler> = [
-  bodyParser.urlencoded({ extended: false }),
-  cors({ origin: true }),
-  morgan("combined"),
+	bodyParser(),
+	bodyParser.urlencoded({ extended: false }),
+	cors({ origin: true }),
+	morgan("combined"),
 ];
 
 const PORT: number = Number(process.env.PORT!);
