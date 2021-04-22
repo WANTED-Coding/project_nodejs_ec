@@ -45,14 +45,13 @@ export default class AuthController extends Controller {
 	}
 
 	async handleLogin(
-		req: IValidateRequest,
+		req: IValidateRequest | any,
 		res: Response,
 		next: NextFunction
 	): Promise<void> {
 		//Handle
 		try {
-			const { email, password }: any = req.value?.body!;
-			console.log(req.value?.body);
+			const { email, password }: any = req.value.body;
 			const authService: AuthService = new AuthService();
 			const result = await authService.loginServices(email, password);
 			console.log(result);
@@ -70,15 +69,15 @@ export default class AuthController extends Controller {
 		}
 	}
 	async handleRegister(
-		req: IValidateRequest,
+		req: IValidateRequest | any,
 		res: Response,
 		next: NextFunction
 	): Promise<void> {
 		//Handle
 		try {
-			const { email, password, phone, fullName }: any = req.value?.body!;
+			const { email, password, phone, fullName }: any = req.value.body;
 			const authService: AuthService = new AuthService();
-			const result = await authService?.register(email,password,phone,fullName);
+			const result = await authService.register(email,password,phone,fullName);
 			if (result.success) {
 				super.sendSuccess(res, result.data!, result.message);
 			} else {
@@ -97,15 +96,15 @@ export default class AuthController extends Controller {
 		super.sendSuccess(res, {}, 'handleForgotPassword');
 	}
 	async handleChangePassword(
-		req: IValidateRequest,
+		req: IValidateRequest | any,
 		res: Response,
 		next: NextFunction
 	): Promise<void> {
 		//Handle
 		try {
-			const { email, password, newPassword }: any = req.value?.body!;
-			const authService: AuthService = new AuthService(req.value?.param);
-			const result = await authService?.changePassword(newPassword);
+			const { email, password, newPassword }: any = req.value.body;
+			const authService: AuthService = new AuthService(req.value.param);
+			const result = await authService.changePassword(newPassword);
 			if (result.success) {
 				super.sendSuccess(res, result.data!, result.message);
 			} else {

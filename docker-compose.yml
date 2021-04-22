@@ -1,0 +1,9 @@
+version: '3'
+services:
+  be-ec-21:
+    container_name: be-ec-21 
+    image: be-ec-21:latest
+    env_file:
+        - ./.env
+    ports:
+      - "3000:3000"

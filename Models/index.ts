@@ -29,7 +29,7 @@ import { ITransport } from '../Interfaces/Transport.interface';
 
 const Schema = mongoose.Schema;
 
-const createSchema = (schema: Object) => {
+const createSchema = (schema: any) => {
 	const model = new Schema(schema, { timestamps: true });
 	return model;
 };
