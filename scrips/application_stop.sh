@@ -1,5 +1,5 @@
 
 #!/bin/bash
 #Stopping existing node servers
-echo "Stopping any existing node servers"
-pm2 delete 0
+echo "Service already for start!"
+pm2 stop 0
