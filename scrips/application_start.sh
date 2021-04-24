@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #give permission for everything in the express-app directory
-sudo chmod -R 777 /home/ubuntu/file
+sudo chmod -R 777 /home/ubuntu/file/ec-2021
 
 #navigate into our working directory where we have all our github files
-cd /home/ubuntu/file
+cd /home/ubuntu/file/ec-2021
 
 #add npm and node to path
 export NVM_DIR="$HOME/.nvm"	
