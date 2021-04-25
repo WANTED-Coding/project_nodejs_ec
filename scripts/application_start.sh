@@ -7,8 +7,6 @@ sudo chmod -R 777 /home/ubuntu/file/ec-2021/dist
 #navigate into our working directory where we have all our github files
 cd /home/ubuntu/file/ec-2021
 
-#install node modules
-sudo yarn
-
-#start our node app in the background
-sudo yarn pm2 
+# Run docker container
+sudo docker rm ec-2021
+sudo docker run -d --name cnpm  -p 3000:3000 --env-file .env lambiengcode/ec-2021

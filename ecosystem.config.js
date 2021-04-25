@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "EC-21",
-      script: "./index.ts",
+      script: "./dist/index.js",
       instances: 1,
       exec_interpreter: "node",
       exec_mode: "cluster",
