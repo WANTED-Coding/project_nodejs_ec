@@ -8,7 +8,7 @@ sudo chmod -R 777 /home/ubuntu/file/ec-2021/dist
 cd /home/ubuntu/file/ec-2021
 
 #install node modules
-yarn
+sudo yarn
 
 #start our node app in the background
-yarn pm2 
+sudo yarn pm2 
