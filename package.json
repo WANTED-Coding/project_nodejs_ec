@@ -2,7 +2,7 @@
   "name": "van.th",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "\"o0oKenZyo0o\"",
+  "author": "\"WANTED\"",
   "license": "MIT",
   "scripts": {
     "build": "rimraf dist/ && tsc",
