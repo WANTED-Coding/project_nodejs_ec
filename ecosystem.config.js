@@ -3,7 +3,7 @@ module.exports = {
     {
       name: "EC-21",
       script: "./index.ts",
-      instances: 2,
+      instances: 1,
       exec_interpreter: "node",
       exec_mode: "cluster",
       interpreter: "node",
