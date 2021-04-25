@@ -9,6 +9,7 @@ permissions:
     mode: 777
     type:
       - directory
+      - file
 hooks:
   ApplicationStop:
     - location: scripts/application_stop.sh
