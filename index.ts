@@ -3,8 +3,9 @@ dotenv.config();
 import morgan from "morgan";
 import {urlencoded} from "body-parser";
 import cors from "cors";
+import slackErrors from "./common/SendSlack";
 // express
-import express, { Application, RequestHandler } from "express";
+import express, { RequestHandler } from "express";
 // important typings
 import Server from "./common/Server";
 

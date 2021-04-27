@@ -53,7 +53,7 @@ export default class AuthService {
 			const userFromDb = await User.findOne({
 				where: { email: email }
 			});
-			if (!userFromDb) {
+			if (userFromDb == null) {
 				const hashedPassword = await bcrypt.hash(password, 10);
 				const createdUser = new User({
 					email: email,
