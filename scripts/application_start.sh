@@ -8,6 +8,7 @@ sudo chmod -R 777 /home/ubuntu/file/ec-2021/dist
 cd /home/ubuntu/file/ec-2021
 
 # Build docker image
+echo "build docker image..."
 sudo docker build -t lambiengcode/ec-2021:latest .
 
 # Run docker container
